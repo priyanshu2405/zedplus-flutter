@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import 'api_config.dart';
+
 enum Role { guard, supervisor }
 
 class Checkpoint {
@@ -41,6 +43,8 @@ class LogEntry {
 /// In-memory state so the demo behaves like a real app (clock-in, patrols,
 /// approvals, chat...). Nothing is persisted; restart the app to reset.
 class DemoState extends ChangeNotifier {
+  String baseUrl = ApiConfig.baseUrl;
+
   Role role = Role.guard;
 
   String get userName => role == Role.guard ? 'Alex Morgan' : 'Priya Shah';
